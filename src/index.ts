@@ -7,13 +7,13 @@ let jacdacVersion: string;
 async function fetchJacdacInfo() {
     jacdacExtensions = await (
         await fetch(
-            "https://raw.githubusercontent.com/microsoft/jacdac/main/services/makecode-extensions.json"
+            "https://raw.githubusercontent.com/jacdac/jacdac/main/services/makecode-extensions.json"
         )
     ).json();
     jacdacVersion = (
         await (
             await fetch(
-                "https://raw.githubusercontent.com/microsoft/pxt-jacdac/master/pxt.json"
+                "https://raw.githubusercontent.com/jacdac/pxt-jacdac/master/pxt.json"
             )
         ).json()
     ).version;
@@ -94,7 +94,7 @@ function parseSnippet(source: string) {
     // add jacdac by default
     if (!meta.dependencies.length)
         meta.dependencies.push(
-            `jacdac=github:microsoft/pxt-jacdac#v${jacdacVersion}`
+            `jacdac=github:jacdac/pxt-jacdac#v${jacdacVersion}`
         );
 
     // ensure unique deps
